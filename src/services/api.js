@@ -30,15 +30,16 @@ export const getDevice = async () => {
 };
 
 export const resetRelay = async (relay) => {
+    const ESP32_IP = "192.168.205.142";
 
-    const res = await API.post("/reset", {
+    const res = await axios.get(
+        `http://${ESP32_IP}/reset?relay=${relay}`
+    );
 
-        relay
-
-    });
-
-    return res.data;
-
+    return {
+        success: true,
+        message: res.data
+    };
 };
 
 export const getExportCSV = async () => {
