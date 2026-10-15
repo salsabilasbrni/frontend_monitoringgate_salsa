@@ -30,10 +30,14 @@ export const getDevice = async () => {
 };
 
 export const resetRelay = async (relay) => {
-    const ESP32_IP = "192.168.208.186";
+    const ESP32_IP = "192.168.205.49";
 
     const res = await axios.get(
-        `http://${ESP32_IP}/reset?relay=${relay}`
+        `http://${ESP32_IP}/reset`,
+        {
+            params: { relay },
+            timeout: 15000,
+        }
     );
 
     return {
