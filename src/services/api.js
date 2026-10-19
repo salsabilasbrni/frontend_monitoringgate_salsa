@@ -29,21 +29,28 @@ export const getDevice = async () => {
     return res.data;
 };
 
+// export const resetRelay = async (relay) => {
+//     const ESP32_IP = "192.168.208.159";
+
+//     const res = await axios.get(
+//         `http://${ESP32_IP}/reset`,
+//         {
+//             params: { relay },
+//             timeout: 15000,
+//         }
+//     );
+
+//     return {
+//         success: true,
+//         message: res.data
+//     };
+// };
+
+
 export const resetRelay = async (relay) => {
-    const ESP32_IP = "192.168.208.159";
+    const res = await API.post("/api/reset", { relay });
 
-    const res = await axios.get(
-        `http://${ESP32_IP}/reset`,
-        {
-            params: { relay },
-            timeout: 15000,
-        }
-    );
-
-    return {
-        success: true,
-        message: res.data
-    };
+    return res.data;
 };
 
 export const getExportCSV = async () => {
