@@ -48,8 +48,7 @@ export const getDevice = async () => {
 
 
 export const resetRelay = async (relay) => {
-    const res = await API.post("/api/reset", { relay });
-
+    const res = await API.post("/reset", { relay });
     return res.data;
 };
 
