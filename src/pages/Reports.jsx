@@ -29,9 +29,12 @@ function Reports() {
   }, []);
 
   const loadReport = async () => {
+  const reportData = await getReport();
+      const historyData = await getHistory();
 
-      const reportData = await getReport();
-      const sortedHistory = [...historyData].reverse();
+      const sortedHistory = Array.isArray(historyData)
+        ? [...historyData].reverse()
+        : [];
 
       setReport(reportData);
       setHistory(sortedHistory);
