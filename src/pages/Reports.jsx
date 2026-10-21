@@ -215,6 +215,7 @@ function Reports() {
               history={history}
               dataKey="reader_in_voltage"
               color="#EC4899"
+              xAxisKey="created_at"
           />
 
           <SensorChart
@@ -222,6 +223,7 @@ function Reports() {
               history={history}
               dataKey="scanner_in_voltage"
               color="#0EA5E9"
+              xAxisKey="created_at"
           />
 
           <SensorChart
@@ -229,6 +231,7 @@ function Reports() {
               history={history}
               dataKey="reader_out_voltage"
               color="#8B5CF6"
+              xAxisKey="created_at"
           />
 
           <SensorChart
@@ -236,6 +239,7 @@ function Reports() {
               history={history}
               dataKey="scanner_out_voltage"
               color="#F59E0B"
+              xAxisKey="created_at"
           />
 
       </div>
