@@ -15,6 +15,7 @@ function TopBar2() {
   const [backendReachable, setBackendReachable] = useState(true);
   const [databaseReachable, setDatabaseReachable] = useState(true);
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -62,7 +63,7 @@ function TopBar2() {
       {/* Notification */}
       <div className="relative">
         <button
-          onClick={() => setShowNotifications((prev) => !prev)}
+          onClick={() => setNotificationOpen((prev) => !prev)}
           className="bg-white border border-blue-200 rounded-2xl p-3 shadow-sm hover:bg-blue-50 transition"
         >
           <div className="relative w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
