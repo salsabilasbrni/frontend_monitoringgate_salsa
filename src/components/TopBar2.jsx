@@ -75,7 +75,7 @@ function TopBar2() {
           </div>
         </button>
 
-        {showNotifications && (
+        {notificationOpens && (
           <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-gray-200 rounded-xl shadow-lg z-50">
             <div className="px-4 py-3 border-b border-gray-100">
               <p className="font-semibold text-gray-800">Notifications</p>
