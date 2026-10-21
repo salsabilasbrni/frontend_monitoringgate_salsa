@@ -89,7 +89,13 @@ function SensorChart({
             />
 
             <XAxis
-              dataKey="time"
+              dataKey="created_at"
+              tickFormatter={(value) =>
+                value ? new Date(value).toLocaleTimeString("id-ID", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                }) : ""
+              }
               tick={{ fill: "#243746", fontSize: 12 }}
               axisLine={false}
               tickLine={false}

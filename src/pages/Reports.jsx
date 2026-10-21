@@ -31,10 +31,10 @@ function Reports() {
   const loadReport = async () => {
 
       const reportData = await getReport();
-      const historyData = await getHistory();
+      const sortedHistory = [...historyData].reverse();
 
       setReport(reportData);
-      setHistory(historyData);
+      setHistory(sortedHistory);
 
   }
   const handleExportCSV = async () => {
