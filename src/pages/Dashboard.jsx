@@ -73,7 +73,7 @@ function Dashboard({ sensor, history, device, search, chartSamples }) {
           icon={<ScanLine size={24} />}
           color="bg-pink-500"
           online={sensor.readerInVoltage > 0}
-          onReset={() => handleReset(1)}
+          onReset={() => handleReset(2)}
         />
       )}
 
@@ -86,7 +86,7 @@ function Dashboard({ sensor, history, device, search, chartSamples }) {
           icon={<ScanLine size={24} />}
           color="bg-sky-500"
           online={sensor.scannerInVoltage > 0}
-          onReset={() => handleReset(2)}
+          onReset={() => handleReset(3)}
         />
       )}
 
@@ -99,7 +99,7 @@ function Dashboard({ sensor, history, device, search, chartSamples }) {
           icon={<ArrowRightLeft size={24} />}
           color="bg-violet-500"
           online={sensor.readerOutVoltage > 0}
-          onReset={() => handleReset(3)}
+          onReset={() => handleReset(2)}
         />
       )}
 
@@ -112,7 +112,7 @@ function Dashboard({ sensor, history, device, search, chartSamples }) {
           icon={<ArrowRightLeft size={24} />}
           color="bg-amber-500"
           online={sensor.scannerOutVoltage > 0}
-          onReset={() => handleReset(4)}
+          onReset={() => handleReset(3)}
         />
       )}
 
@@ -125,7 +125,7 @@ function Dashboard({ sensor, history, device, search, chartSamples }) {
           icon={<Cog size={24} />}
           color="bg-emerald-500"
           online={sensor.motorVoltage > 0}
-          onReset={() => handleReset(5)}
+          onReset={() => handleReset(1)}
         />
       )}
       {showCard("Temperature") && (
