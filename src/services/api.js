@@ -29,6 +29,14 @@ export const getDevice = async () => {
     return res.data;
 };
 
+export const getHealth = async () => {
+    const res = await API.get("/health", {
+        timeout: 5000,
+    });
+
+    return res.data;
+};
+
 // export const resetRelay = async (relay) => {
 //     const ESP32_IP = "192.168.208.159";
 
