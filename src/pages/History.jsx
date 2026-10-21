@@ -10,19 +10,29 @@ import {
   Thermometer,
   Droplets,
 } from "lucide-react";
-import { getAllSensor } from "../services/api";
+import { getAllSensor, getSensorCount } from "../services/api";
 
 function History() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  const [totalRecords, setTotalRecords] = useState(0);
 
   useEffect(() => {
     loadData();
   }, []);
 
   const loadData = async () => {
-    const result = await getAllSensor();
-    setData(result);
+    try {
+      const [result, count] = await Promise.all([
+        getAllSensor(),
+        getSensorCount(),
+      ]);
+
+      setData(result);
+      setTotalRecords(count);
+    } catch (error) {
+      console.error("Gagal memuat data History:", error);
+    }
   };
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = Number(localStorage.getItem("historyRows")) || 10;
@@ -158,7 +168,7 @@ function History() {
             <SummaryCard
               icon={<Database size={22} />}
               title="Total Records"
-              value={data.length}
+              value={totalRecords}
               color="#FB8CAC"
             />
           </div>
