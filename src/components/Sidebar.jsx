@@ -221,134 +221,51 @@ function Sidebar({ sidebarOpen, setSidebarOpen, search, setSearch }) {
 
 
       {/* ================= FOOTER ================= */}
-
       {sidebarOpen && (
-        <div className="px-4 pb-4 pt-4">
-
-          <div
-            className="
-              rounded-[22px]
-              p-3
-              flex
-              items-center
-              gap-3
-              border
-            "
-            style={{
-              background: "#FFFFFF",
-              borderColor: "#FFFFFF",
-            }}
-          >
-
-            <div
-              className="
-                w-12
-                h-12
-                rounded-full
-                flex
-                items-center
-                justify-center
-                text-white
-                font-bold
-                flex-shrink-0
-              "
-              style={{
-                background: "#008EE6",
-              }}
-            >
-            {sidebarOpen && (
-              <div className="absolute bottom-4 left-4 right-4">
-
-                <div className="rounded-[22px] p-3 bg-white">
-
-                  {/* USER INFO */}
-                  <div className="flex items-center gap-3">
-
-                    {/* FOTO GOOGLE */}
-                    {user?.picture && !imageError ? (
-                      <img
-                        src={user.picture}
-                        alt={user.name}
-                        className="
-                          w-12 h-12
-                          rounded-full
-                          object-cover
-                          flex-shrink-0
-                        "
-                        onError={() => setImageError(true)}
-                        />
-                    ):(
-                      <div
-                        className="
-                          w-12 h-12
-                          rounded-full
-                          flex items-center justify-center
-                          text-white font-bold
-                          flex-shrink-0
-                        "
-                        style={{ background: "#008EE6" }}
-                      >
-                        {user?.name?.charAt(0) || "U"}
-                      </div>
-                    )}
-
-                    {/* NAMA + EMAIL */}
-                    <div className="min-w-0 flex-1">
-
-                      <p
-                        className="font-semibold truncate text-sm"
-                        style={{ color: "#6B7C8F" }}
-                      >
-                        {user?.name || "User"}
-                      </p>
-
-                      <p
-                        className="text-xs truncate"
-                        style={{ color: "#6B7C8F" }}
-                      >
-                        {user?.email || "No email"}
-                      </p>
-
-                    </div>
-
-                  </div>
-
-
-                  {/* LOGOUT */}
-                  <button
-                    onClick={handleLogout}
-                    className="
-                      mt-3
-                      w-full
-                      flex
-                      items-center
-                      justify-center
-                      gap-2
-                      rounded-[14px]
-                      py-2.5
-                      text-sm
-                      font-medium
-                      text-red-500
-                      bg-red-50
-                      hover:bg-red-100
-                      transition
-                    "
-                  >
-                    <LogOut size={17} />
-                    Logout
-                  </button>
-
+        <div className="mt-auto px-4 pb-4 pt-4">
+          <div className="rounded-[22px] bg-white p-3">
+            {/* USER INFO */}
+            <div className="flex items-center gap-3">
+              {user?.picture && !imageError ? (
+                <img
+                  src={user.picture}
+                  alt={user.name || "User"}
+                  className="h-12 w-12 flex-shrink-0 rounded-full object-cover"
+                  onError={() => setImageError(true)}
+                />
+              ) : (
+                <div
+                  className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full font-bold text-white"
+                  style={{ background: "#008EE6" }}
+                >
+                  {user?.name?.charAt(0) || "U"}
                 </div>
+              )}
 
+              {/* NAMA + EMAIL */}
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-semibold text-[#6B7C8F]">
+                  {user?.name || "User"}
+                </p>
+                <p className="truncate text-xs text-[#6B7C8F]">
+                  {user?.email || "No email"}
+                </p>
               </div>
-            )}
-
             </div>
 
+            {/* LOGOUT */}
+            <button
+              onClick={handleLogout}
+              className="mt-3 flex w-full items-center justify-center gap-2 rounded-[14px] bg-red-50 py-2.5 text-sm font-medium text-red-500 transition hover:bg-red-100"
+            >
+              <LogOut size={17} />
+              Logout
+            </button>
           </div>
-
         </div>
       )}
+
+
       {!sidebarOpen && (
         <div className="mt-auto flex justify-center pb-5">
 
