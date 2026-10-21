@@ -37,6 +37,13 @@ export const getHealth = async () => {
     return res.data;
 };
 
+
+export const getSensorCount = async () => {
+  const res = await API.get("/sensor/count");
+  return res.data.totalRecords;
+};
+
+
 // export const resetRelay = async (relay) => {
 //     const ESP32_IP = "192.168.208.159";
 
