@@ -165,12 +165,12 @@ function Reports() {
             color="#10B981"
         />
 
-        <ReportCard
+        {/* <ReportCard
             title="Max Motor Current"
             value={`${Number(report.maxMotorCurrent || 0).toFixed(2)} A`}
             icon={<Activity size={24} />}
             color="#3B82F6"
-        />
+        /> */}
 
         <ReportCard
             title="Motor Counter"
